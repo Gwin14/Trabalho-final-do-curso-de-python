@@ -76,3 +76,23 @@ def mortosPorClasse():
     plt.xlabel("Classes dos passageiros")
     plt.ylabel("Quantidade de Mortes")
     plt.show()
+
+
+def quantidadeDeConjulgues():
+    parchs = {}
+
+    for x in tit:
+        parch = x['Parch']
+        if parch not in parchs:
+            parchs[parch] = 1
+        else:
+            parchs[parch] += 1
+
+    valores_parch = list(parchs.keys())
+    quantidade_pessoas = list(parchs.values())
+
+    plt.bar(valores_parch, quantidade_pessoas)
+    plt.xlabel('Quantidade de cônjulgues')
+    plt.ylabel('Quantidade de pessoas')
+    plt.title('Quantidade de pessoas por quantidade de cônjulgues')
+    plt.show()

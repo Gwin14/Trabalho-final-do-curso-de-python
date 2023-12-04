@@ -9,6 +9,8 @@ elif resposta == '2':
     funcoes.porcentagemMortosMaiorDeIdade()
 elif resposta == '3':
     funcoes.mortosPorClasse()
+elif resposta == '4':
+    funcoes.quantidadeDeConjulgues()
 else:
     print('Insira uma resposta válida.')
         
