@@ -96,3 +96,23 @@ def quantidadeDeConjulgues():
     plt.ylabel('Quantidade de pessoas')
     plt.title('Quantidade de pessoas por quantidade de cônjulgues')
     plt.show()
+
+
+def locaisDeEmbarque():
+    locais = {}
+
+    for x in tit:
+        loc = x['Embarked']
+        if loc not in locais:
+            locais[loc] = 1
+        else:
+            locais[loc] += 1
+
+    embarcacoes = list(locais.keys())
+    pessoasPorLocal = list(locais.values())
+
+    plt.bar(embarcacoes, pessoasPorLocal)
+    plt.xlabel('Locais de embarque')
+    plt.ylabel('Quantidade de pessoas que embarcaram')
+    plt.title('Quantidade de pessoas que embarcaram em cada lugar')
+    plt.show()

@@ -11,6 +11,7 @@ elif resposta == '3':
     funcoes.mortosPorClasse()
 elif resposta == '4':
     funcoes.quantidadeDeConjulgues()
+elif resposta == '5':
+    funcoes.locaisDeEmbarque()
 else:
     print('Insira uma resposta válida.')
-        
