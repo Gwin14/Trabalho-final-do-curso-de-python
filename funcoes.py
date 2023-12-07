@@ -116,3 +116,63 @@ def locaisDeEmbarque():
     plt.ylabel('Quantidade de pessoas que embarcaram')
     plt.title('Quantidade de pessoas que embarcaram em cada lugar')
     plt.show()
+
+
+def tarifasPagas():
+    tarifas = []
+
+    for passageiro in tit:
+        fare = passageiro['Fare']
+        if fare:
+            try:
+                tarifa = float(fare)
+                tarifas.append(tarifa)
+            except ValueError:
+                pass
+
+    plt.figure(figsize=(8, 6))
+    plt.hist(tarifas, bins=20, color='skyblue', edgecolor='black')
+    plt.xlabel('Tarifa')
+    plt.ylabel('Frequência')
+    plt.title('Distribuição das Tarifas Pagas pelos Passageiros')
+    plt.grid(True)
+    plt.show()
+
+
+def relacaoIdadeSobreviventes():
+    idades_sobreviventes = []
+    idades_mortos = []
+
+    for passageiro in tit:
+        idade = passageiro['Age']
+        if idade != '':
+            if passageiro['Survived'] == '1':
+                idades_sobreviventes.append(float(idade))
+            else:
+                idades_mortos.append(float(idade))
+
+    plt.figure(figsize=(8, 6))
+    plt.boxplot([idades_sobreviventes, idades_mortos],
+                labels=['Sobreviventes', 'Mortos'])
+    plt.xlabel('Status')
+    plt.ylabel('Idade')
+    plt.title('Comparação de Idades entre Sobreviventes e Mortos')
+    plt.grid(True)
+    plt.show()
+
+
+def totalDeParentes():
+    total_parentes = []
+
+    for x in tit:
+        sibsp = int(x['SibSp'])
+        parch = int(x['Parch'])
+        total_parentes.append(sibsp + parch)
+
+    plt.figure(figsize=(8, 6))
+    plt.hist(total_parentes, bins=max(total_parentes) -
+             min(total_parentes), color='green', edgecolor='black')
+    plt.xlabel('Número Total de Parentes a Bordo')
+    plt.ylabel('Frequência')
+    plt.title('Distribuição do Número Total de Parentes a Bordo')
+    plt.show()
