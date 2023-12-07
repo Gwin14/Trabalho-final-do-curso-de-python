@@ -176,3 +176,53 @@ def totalDeParentes():
     plt.ylabel('Frequência')
     plt.title('Distribuição do Número Total de Parentes a Bordo')
     plt.show()
+
+
+def sobreviventesPorGenero():
+        mulher = 0
+        homem = 0
+
+        for x in tit:
+            if x['Survived'] == '1' and x['Sex'] == 'female':
+                mulher += 1
+            elif x['Survived'] == '1' and x['Sex'] == 'male':
+                homem += 1
+
+        y = [homem, mulher]
+        legendas = [f"Sobrevientes homens: {str(homem)}", f"Sobreviventes mulheres: {str(mulher)}"]
+
+        plt.title('Números de sobreviventes por gênero')
+        plt.pie(y, labels=legendas)
+        plt.show()
+
+
+def mediaPrecosPorClasse():
+    classe1 = []
+    classe2 = []
+    classe3 = []
+
+
+    for passageiro in tit:
+        classe = int(passageiro['Pclass'])
+        fare = float(passageiro['Fare'])
+        
+        if classe == 1:
+            classe1.append(fare)
+        elif classe == 2:
+            classe2.append(fare)
+        elif classe == 3:
+            classe3.append(fare)
+
+    media_classe1 = sum(classe1) / len(classe1) if classe1 else 0
+    media_classe2 = sum(classe2) / len(classe2) if classe2 else 0
+    media_classe3 = sum(classe3) / len(classe3) if classe3 else 0
+
+    classes = [media_classe1, media_classe2, media_classe3]
+    legendas = ["Classe 1", "Classe 2", "Classe 3"]
+
+    plt.title("Média de Preços por Classe")
+    plt.bar(legendas, classes, color=['blue', 'orange', 'green'])
+    plt.xlabel("Classes dos Passageiros")
+    plt.ylabel("Média de Preços")
+    plt.show()
+

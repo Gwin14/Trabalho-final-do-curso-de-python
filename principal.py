@@ -19,8 +19,10 @@ def executar_acao(opcao):
         funcoes.relacaoIdadeSobreviventes()
     elif opcao == 8:
         funcoes.totalDeParentes()
-    else:
-        print('Insira uma resposta válida.')
+    elif opcao == 9:
+        funcoes.sobreviventesPorGenero()
+    elif opcao == 10:
+        funcoes.mediaPrecosPorClasse()
 
 
 def criar_janela():
@@ -37,7 +39,9 @@ def criar_janela():
         ('Locais de Embarque', 5),
         ('Tarifas Pagas', 6),
         ('Relação Idade/Sobreviventes', 7),
-        ('Total de Parentes', 8)
+        ('Total de Parentes', 8),
+        ('Sobreviventes por gênero', 9),
+        ('Média de preços por classe', 10)
     ]
 
     for idx, (acao, opcao) in enumerate(acoes):
